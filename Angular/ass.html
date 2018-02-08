@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html ng-app="myapp">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="handheldFriendly" content="true">
+<script src="angular.min.js"></script>
+<script>
+	angular.module("myapp", [])
+ .controller("HelloCont", function($scope) {
+$scope.add=function(){
+alert("Click Ok to view your details")
+$scope.det=true;
+return $scope.data="NAME:" +$scope.username+ 
+	" ___AGE:" + $scope.age+ 
+	" ___SEX:" +$scope.sex+ 
+	" ___E-MAIL:" +$scope.mail+
+	" ___ADDRESS:" + $scope.address +
+	" ___COUNTRY:" +$scope.sel+ 
+	" ___COURSE:" +$scope.select;
+}
+	});
+</script>
+<head>
+<style>
+.p{
+text-overflow: ellipsis; 
+overflow: hidden;
+ }
+ img{
+max-width:92%;
+height:480px;
+padding-left:10px;
+padding-right:10px;
+}
+ td{
+  color:black;
+  font-size:150%;
+  }
+ h1{
+ text-align:center;
+ padding-top:6px;
+ color:orange;
+ padding-bottom:4px;
+ }
+ table{
+ margin-top:20px;
+ }
+@media only screen and (max-width:500px)
+{
+.menu, .main, .right{
+width:100%;
+}
+@media only screen and (max-width:800px)
+{.main{
+width:80%;
+}
+.right{
+width:100%;
+}
+}
+
+</style>
+</head>
+<body >
+<div  class="p" style="background-color:black;width:100%;height:70px;float:left;">
+<td><h1>REGISTER</h1></td>  
+</div>
+<div  class="p" style="background-color:orange;width:100%;height:12px;float:left;">  
+</div>
+<div class="p" style="background-color:black;width:100%;height:15px;float:left;">  
+</div>
+<div class="p" style="background-color:black;width:30%;height:479px;float:left;">
+<img src="images.jpg">  
+</div>
+<div ng-controller="HelloCont">
+ <div class="p"    style="background-color:orange;width:70%;height:auto;float:left;">
+<table align="center"><tr><td>
+<tr><td>Name:</td><td><input type='text' style='background-color:black;color:white; font-weight:bold;' ng-model='username' maxlength='50' value='' required="required"></td></tr>
+<tr><td></td></tr>
+<tr><td>Age:</td><td><input type='text' style='background-color:black;color:white; font-weight:bold;' ng-model='age' maxlength='3' value='' required="required"></td></tr>
+<tr><td></td></tr>
+<tr><td>Country:</td><td><select ng-model="sel" style='background-color:black;color:white; font-weight:bold;'  value='' required="required">
+   <option value="s">Select the country..</option>
+  <option value="India">India</option>
+  <option value="America">America</option>
+  <option value="Australia">Australia</option>
+  <option value="Japan">Japan</option></select></td></tr>
+<tr><td></td></tr>
+ <tr><td>Address:</td><td><textarea cols="15" rows="5" input type='text' style='background-color:black;color:white; font-weight:bold;' ng-model='address' maxlength='100'  value='' required="required"></textarea></td></tr>
+<tr><td></td></tr>
+ <tr><td>Sex:</td><td><input type='radio' style='background-color:black;color:white; font-weight:bold;' ng-model='sex'  value='male' >Male</td></tr>
+<tr><td>    </td><td><input type='radio' style='background-color:black;color:white; font-weight:bold;' ng-model='sex'  value='female'>Female</td></tr>
+<tr><td></td></tr>
+<tr><td>Course:</td><td><select ng-model="select"  style='background-color:black;color:white; font-weight:bold;'  value='' required="required">
+   <option value="s">Select the course..</option>
+  <option value="CSE">CSE</option>
+  <option value="IT">IT</option>
+  <option value="BME">BME</option>
+  <option value="AERO">AERO</option>
+  <option value="CIVIL">CIVIL</option>
+  <option value="ECE">ECE</option>
+  <option value="EEE">EEE</option>
+  <option value="GENETIC">GENETIC</option>
+  <option value="MECH">MECH</option>
+  </select></td></tr>
+<tr><td></td></tr>
+ <tr><td>E-mail:</td><td><input type='email' style='background-color:black; color:white;font-weight:bold;' ng-model='mail' maxlength='25' value='' required></td></tr>
+<tr><td></td></tr>
+ <tr><td>Password:</td><td><input type='password' style='background-color:black; color:white;font-weight:bold;' ng-model='confirm' maxlength='15' value='' required></td></tr>
+<tr><td></td></tr>
+ <tr><td>Image:</td><td><input type="file" ng-model="upload" value="Upload"></td></tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td>&nbsp;</td><td><input type='submit' ng-model='submit' value='Register Account' ng-click="add();"/></td></tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+</tr></td></table>
+</div>
+<div class="p" style="background-color:black;width:100%;height:15px;float:left;">  
+</div>
+<div class="p" style="background-color:orange;width:100%;height:15px;float:left;">  
+</div>
+<div class="p" style="background-color:black;width:100%;height:35px;float:left;">
+</div>
+<div ng-show="det" style="background-color:black; color:orange;width:100%;height:auto;float:left;">
+<center><h2>...YOUR DETAILS...<h2><br><br>
+{{data}}
+<br><br>THANK YOU</center>
+</div>
+</div>
+</body>
+</html>
